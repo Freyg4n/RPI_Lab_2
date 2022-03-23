@@ -3,4 +3,4 @@
 
 (```Суша```, ```Майсюк```, ```Вашкевич```, ```Ционенко```)
 
-![Image](images/memes/HeadHurts.png)
+![Image](styles/images/memes/HeadHurts.png)

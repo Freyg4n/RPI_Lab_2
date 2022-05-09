@@ -1,10 +1,10 @@
-/*===========Block1 Slider(Dima)=============*/
+/*===========Block1_Slider(Dima)=============*/
 let links = document.querySelectorAll(".itemLinks");
 let wrapper = document.querySelector("#wrapper");
-let activeLink = 0;
+let activeLinkD = 0;
 
 if (localStorage.getItem('navLink')) {
-    activeLink = localStorage.getItem('navLink');
+    activeLinkD = localStorage.getItem('navLink');
 }
 
 for (let i = 0; i < links.length; i++) {
@@ -13,12 +13,12 @@ for (let i = 0; i < links.length; i++) {
     link.itemID = i;
 }
 
-links[activeLink].classList.add("active");
+links[activeLinkD].classList.add("active");
 
 function setClickedItem(e) {
     removeActiveLinks();
     let clickedLink = e.target;
-    activeLink = clickedLink.itemID;
+    activeLinkD = clickedLink.itemID;
     changePosition(clickedLink);
 }
 
@@ -33,7 +33,7 @@ function changePosition(link) {
 
     let position = link.getAttribute("data-pos");
     wrapper.style.left = position;
-    localStorage.setItem('navLink', activeLink);
+    localStorage.setItem('navLink', activeLinkD);
 }
 
 let timeoutID;
@@ -50,12 +50,12 @@ function resetTimer() {
 
 function goToNextItem() {
     removeActiveLinks();
-    if (activeLink < links.length - 1) {
-        activeLink++;
+    if (activeLinkD < links.length - 1) {
+        activeLinkD++;
     } else {
-        activeLink = 0;
+        activeLinkD = 0;
     }
-    let newLink = links[activeLink];
+    let newLink = links[activeLinkD];
     changePosition(newLink);
 }
 /*===========================================*/

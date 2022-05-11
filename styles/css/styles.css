@@ -126,7 +126,7 @@ body {
 #navLinks ul li:hover {
     cursor: pointer;
 }
-#navLinks ul li.active {
+#navLinks ul li.activeD {
     width: 8px;
     height: 8px;
     background-color: #555555;

@@ -133,6 +133,7 @@ email.oninput = function() {
 /*===========================================*/
 //localStorage.clear()
 //COMMENTS(*%&#@!)
+//Павел или можно просто заложник распределения заданий(((((
 const path_photo = "styles/images/Pavel/"
 let startingComments = [
     { name : "Smuckersreg Toppings", body : "Hello", time : "12/10/2020", res: "Photo15_1.png", height: 125, id: 0},

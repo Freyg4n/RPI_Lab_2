@@ -13,7 +13,7 @@ for (let i = 0; i < links.length; i++) {
     link.itemID = i;
 }
 
-links[activeLinkD].classList.add("active");
+links[activeLinkD].classList.add("activeD");
 changePosition(links[activeLinkD]);
 
 function setClickedItem(e) {
@@ -25,12 +25,12 @@ function setClickedItem(e) {
 
 function removeActiveLinks() {
     for (let i = 0; i < links.length; i++) {
-        links[i].classList.remove("active");
+        links[i].classList.remove("activeD");
     }
 }
 
 function changePosition(link) {
-    link.classList.add("active");
+    link.classList.add("activeD");
 
     let position = link.getAttribute("data-pos");
     wrapper.style.left = position;

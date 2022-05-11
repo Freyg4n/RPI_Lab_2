@@ -1533,7 +1533,7 @@ body {
     border: 1px solid #c2c2c2;
     background-color: #ffffff;
 }
-.login, .usname, .password2, .rppassword {
+.login, .usname,.password, .password2, .rppassword {
     color: #000000;
     font-family: "Josefin Sans";
     font-size: 20px;

@@ -871,32 +871,49 @@ body {
     font-weight: 700;
     color: #000000;
 }
-.photo-galery{
+.photo-gallery{
     width: 289px;
     height: 204px;
-    background-image: url(../images/Ivan/food.png);
     display: flex;
     justify-content: center;
     align-items: flex-end;
-
 }
-.dot-nav-6-1{
+.gallery-content{
+    width: 289px;
+    height: 204px;
+    overflow: hidden;
+}
+
+#allPhotos{
+    height: 204px;
+    position: relative;
+    display: flex;
+    left: 0px;
+    transition: left .5s ease-in-out;
+}
+.photo-gallery-photo{
+    width: 289px;
+    height: 204px;
+}
+.dot-navigation{
     display: flex;
     justify-content: space-between;
     list-style: none;
     width: 70px;
+    position: absolute;
     margin-bottom: 10px;
+    padding: 0px;
 }
-.dot6{
+.dot-link{
     width: 8px;
     height: 8px;
     background-color: #ffffff;
     border-radius: 50%;
 }
-.selected-dot{
+.selected{
     background-color: #555555;
 }
-.dot6:hover{
+.dot-link:hover{
     cursor: pointer;
 }
 /*--------------------------*/

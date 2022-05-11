@@ -14,6 +14,7 @@ for (let i = 0; i < links.length; i++) {
 }
 
 links[activeLinkD].classList.add("active");
+changePosition(links[activeLinkD]);
 
 function setClickedItem(e) {
     removeActiveLinks();
@@ -37,14 +38,17 @@ function changePosition(link) {
 }
 
 let timeoutID;
+let timeoutID2;
 
 function startTimer() {
     timeoutID = window.setInterval(goToNextItem, 7000);
+    timeoutID2=window.setInterval(goToNextDot,7000);
 }
 startTimer();
 
 function resetTimer() {
     window.clearInterval(timeoutID);
+    window.clearInterval(timeoutID2);
     startTimer();
 }
 
@@ -59,7 +63,56 @@ function goToNextItem() {
     changePosition(newLink);
 }
 /*===========================================*/
-/*===========Block1 Slider(Artyom)=============*/ 
+/*==============Ivan block6 slider*/
+const photoSize=289;
+let dots = document.querySelectorAll(".dot-link");
+let gallery = document.querySelector("#allPhotos");
+let activeDot=0;
+
+if (localStorage.getItem('actDot')) {
+    activeDot = localStorage.getItem('actDot');
+}
+
+function changePhoto(dot) {
+    dot.classList.add("selected");
+    let position = -dot.getAttribute("value")*photoSize;
+    gallery.style.left = position+"px";
+}
+
+function removeActiveDots() {
+    for (let i = 0; i < dots.length; i++) {
+        dots[i].classList.remove("selected");
+    }
+}
+
+function setClickedDot(e) {
+    removeActiveDots();
+    let clickedDot = e.target;
+    activeDot = clickedDot.itemID;
+    localStorage.setItem('actDot', activeDot);
+    changePhoto(clickedDot);
+}
+
+for (let i = 0; i < dots.length; i++) {
+    dots[i].addEventListener('click', setClickedDot, false);
+    dots[i].itemID = i;
+}
+dots[activeDot].classList.add("selected");
+changePhoto(dots[activeDot]);
+
+function goToNextDot()
+{
+    removeActiveDots();
+    if (activeDot < dots.length - 1) {
+        activeDot++;
+    } else {
+        activeDot = 0;
+    }
+    let newDot = dots[activeDot];
+    changePhoto(newDot);
+}
+/*===========================================*/
+/*===========(Artyom)=============*/
 var password = document.querySelector('.password')
 var button = document.querySelector('.btlogin')
 var login = document.querySelector('.login')

@@ -92,7 +92,8 @@ function check() {
 }
 
 function check2() {
-    if (!usname.value || !password2.value || !rppassword.value || !email.value){
+    var reg = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+    if (reg.test(email.value) == false || !usname.value || !password2.value || !rppassword.value || !email.value){
         console.log("bad")
         button2.disabled = true
     }

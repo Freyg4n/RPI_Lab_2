@@ -131,16 +131,17 @@ email.oninput = function() {
 }
 
 /*===========================================*/
+//localStorage.clear()
 //COMMENTS(*%&#@!)
 const path_photo = "styles/images/Pavel/"
 let startingComments = [
-    { name : "Smuckersreg Toppings", body : "Hello", time : "12/10/2020", res: "Photo15_1.png", height: 120},
-    { name : "Artyom", body : "Lorem Ipsum", time : "10/11/2020", res: "Photo15_1.png", height: 120},
-    { name : "Ivan Cook", body : "Nice recipe", time : "2/12/2020", res: "Photo15_1.png", height: 120},
-    { name : "Kitty", body : "bla-bla-bla", time : "2/12/2020", res: "Photo15_1.png", height: 120},
-    { name : "Dima", body: "JavaScript((", time: "22/12/2020", res: "Photo15_1.png", height: 120},
-    { name : "Vanya", body: "Agree((", time : "23/12/2020", res: "Photo15_1.png", height: 120},
-    { name : "Terminator", body: "Hello, World!", time: "10/4/2022", res: "Photo15_1.png", height: 120}
+    { name : "Smuckersreg Toppings", body : "Hello", time : "12/10/2020", res: "Photo15_1.png", height: 125, id: 0},
+    { name : "Artyom", body : "Lorem Ipsum", time : "10/11/2020", res: "Photo15_1.png", height: 125, id: 0},
+    { name : "Ivan Cook", body : "Nice recipe", time : "2/12/2020", res: "Photo15_1.png", height: 125, id: 0},
+    { name : "Kitty", body : "bla-bla-bla", time : "2/12/2020", res: "Photo15_1.png", height: 125, id: 0},
+    { name : "Dima", body: "JavaScript((", time: "22/12/2020", res: "Photo15_1.png", height: 125, id: 0},
+    { name : "Vanya", body: "Agree((", time : "23/12/2020", res: "Photo15_1.png", height: 125, id: 0},
+    { name : "Terminator", body: "Hello, World!", time: "10/4/2022", res: "Photo15_1.png", height: 125, id: 0}
 ]
 let isPushed15 = false;
 if (localStorage.getItem('isPushed15')){
@@ -189,6 +190,7 @@ btnPostCom15.onclick = () => {
         makePages()
         makeLiClick()
         currentPageP = 1
+        localStorage.setItem("currentPageP", currentPageP)
         showPage(1)
     } else alert('Не введён комментарий')
     localStorage.removeItem('currComm')
@@ -307,8 +309,7 @@ function createComment(name, body, date, src){
     let _body = document.createElement("span")
     _body.className = "text16-11"
     _body.textContent = body
-    let count_strs = Math.ceil(body.length / 100)
-    _body.style.height = count_strs * 24 + "px";
+    _body.style.height = computeCountStrs(body) * 25 + "px";
     center_comment.appendChild(_body)
 
     let block = document.createElement("div")
@@ -316,20 +317,31 @@ function createComment(name, body, date, src){
     mother.appendChild(block)
 }
 
+function computeCountStrs(body){
+    let len = 0
+    for (let i = 0; i < body.length; i++){
+        if (body[i] >= "A" && body [i] <= "Z") len += 1.2
+        else len++
+    }
+    return Math.ceil(len / 100)
+}
 function computeHeight(body){
-    let count_strs = Math.ceil(body.length / 100)
-    height = 96 + count_strs * 24
+    let count_strs = computeCountStrs(body)
+    height = 100 + count_strs * 25
     return height
 }
 
-
 function makePages(){
     let length = 0
-    let Pages
+    let Pages = 1
     for (let comment of comments) {
         length += +comment["height"]
+        if (length > 685)  {
+            length = +comment["height"]
+            Pages++
+        }
     }
-    Pages = Math.ceil(length / 725)
+    generateID(Pages)
     let ul = document.getElementById("navigation_bar")
     let children1 = document.querySelectorAll(".text17-1")
     let children2 = document.querySelectorAll(".text17-arrowleft")
@@ -370,39 +382,34 @@ function makePages(){
     ul.appendChild(lil)
 }
 
+function generateID(){
+    let curr_len = 0
+    let id = 1
+    for (let i = comments.length - 1; i >= 0; i--) {
+        curr_len += comments[i]["height"]
+        if (curr_len > 685){
+            curr_len = comments[i]["height"]
+            id++
+            comments[i]["id"] = id
+        } else comments[i]["id"] = id
+    }
+    saveComments()
+}
+
 function showPage(id){
-    let curr_id = 1
-    let curr_height
-    let start = comments.length - 1
-    let finish = 0
     deleteComments()
-    let j = start
-    let i = start
-    let flag = false
-    while (curr_id++ != id){
-        curr_height = 0
-        while (curr_height <= 670 && i >= 0){
-            curr_height += +comments[i]["height"]
-            i--;
+    loadComments()
+    for (let i = comments.length - 1; i >= 0; i--){
+        if (comments[i]["id"] == id){
+            createComment(comments[i]["name"], comments[i]["body"], comments[i]["time"], comments[i]["res"])
         }
-        if (i === -1) flag = true
-        if (!flag) j = i + 1
-    }
-    start = j
-    finish = start
-    curr_height = 0
-    while (curr_height <= 520 && finish >= 0){
-        curr_height += +comments[finish--]["height"]
-    }
-    if (finish === -1) finish++
-    for (let i = start; i >= finish; i--){
-        createComment(comments[i]["name"], comments[i]["body"], comments[i]["date"], comments[i]["res"])
+        if (comments[i]["id"] > id) break
     }
     let actives = document.querySelectorAll(".active")
     for (let active of actives){
         active.classList.remove("active")
     }
-    let activePageP
+    let activePageP = localStorage.getItem("currPageP")
     let items = document.querySelectorAll(".text17-1")
     for (let item of items){
         if (item.textContent == id) {
@@ -432,5 +439,3 @@ function makeLiClick() {
         })
     }
 }
-
-

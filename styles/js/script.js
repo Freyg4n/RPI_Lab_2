@@ -59,7 +59,78 @@ function goToNextItem() {
     changePosition(newLink);
 }
 /*===========================================*/
+/*===========Block1 Slider(Artyom)=============*/ 
+var password = document.querySelector('.password')
+var button = document.querySelector('.btlogin')
+var login = document.querySelector('.login')
+var usname = document.querySelector('.usname')
+var password2 = document.querySelector('.password2')
+var rppassword = document.querySelector('.rppassword')
+var button2 = document.querySelector('.btsignup')
+var email = document.getElementById("email")
 
+document.getElementById("login").disabled = true
+button2.disabled = true
+
+button.onclick = function () {
+    location.href = "#"
+}
+
+button2.onclick = function () {
+    location.href = "#"
+}
+
+function check() {
+    if (!login.value || !password.value){
+        console.log("bad")
+        document.getElementById("login").disabled = true
+    }
+    else{
+        console.log("good")
+        document.getElementById("login").disabled = false
+    }
+}
+
+function check2() {
+    if (!usname.value || !password2.value || !rppassword.value || !email.value){
+        console.log("bad")
+        button2.disabled = true
+    }
+    else{
+        if (password2.value === rppassword.value){
+            console.log("good")
+            button2.disabled = false   
+        }
+        else{
+            button2.disabled = true
+        }
+    }
+}
+password.oninput = function () {
+    check()
+}
+
+login.oninput = function (){
+    check()
+}
+
+usname.oninput = function (){
+    check2()
+}
+
+password2.oninput = function (){
+    check2()
+}
+
+rppassword.oninput = function (){
+    check2()
+}
+
+email.oninput = function() {
+    check2()
+}
+
+/*===========================================*/
 //COMMENTS(*%&#@!)
 const path_photo = "styles/images/Pavel/"
 let startingComments = [

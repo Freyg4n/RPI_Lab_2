@@ -2156,6 +2156,7 @@ button:hover {
     flex-wrap: wrap;
     gap: 30px;
     list-style: none;
+    padding: 0;
 }
 .text17-1, .text17-3, .text17-4, .text17-5, .text17-6, .text17-7, .text17-arrowright, .text17-arrowleft{
     color: #000000;

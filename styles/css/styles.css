@@ -455,9 +455,10 @@ body {
     font-size: 18px;
     font-weight: 400;
 
-    position: absolute;
-
-    left: 620px;
+    position: fixed;
+    left: 40%;
+    top: 40%;
+    z-index: 2;
 }
 
 .text-container-3{

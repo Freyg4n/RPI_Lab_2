@@ -417,16 +417,49 @@ body {
     text-transform: uppercase;
     width: 105px;
     height: 28px;
+
     border: 1px solid #c2c2c2;
     background-color: white;
-    margin-left: 40%;
-    margin-top: 10px;
 }
 .btn3-1:hover{
     background-color: #c2c2c2;
     color:#000000;
     cursor: pointer;
 }
+.btn3-1-place{
+    color: #000000;
+    font-family: "Josefin Sans", serif;
+    font-size: 12px;
+    font-weight: 400;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 105px;
+    height: 28px;
+    background-color: white;
+    margin-left: 40%;
+    margin-top: 10px;
+}
+.pop-up{
+    width: 300px;
+    height: 150px;
+    box-shadow: 0 0 13px rgba(0, 0, 0, 0.15);
+    background-color: #ffffff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Josefin Sans", serif;
+    font-size: 18px;
+    font-weight: 400;
+
+    position: absolute;
+
+    left: 620px;
+}
+
 .text-container-3{
     display: flex;
     flex-direction: column;

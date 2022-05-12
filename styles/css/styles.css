@@ -43,7 +43,7 @@ body {
     font-size: 10px;
     font-weight: 100;
     font-style: normal;
-        line-height: normal;
+    line-height: normal;
     text-transform: uppercase;
     text-align: center;
     opacity: 75%;
@@ -67,10 +67,70 @@ body {
     height: 438px;
     box-shadow: 0 0 13px rgba(0, 0, 0, 0.15);
     background-color: #ffffff;
-    background-image: url(../images/Dima/Photo1-1.png);
     margin-left: 150px;
     margin-top: 85px;
     display: flex;
+    position: relative;
+}
+#wrapper {
+    width: 5595px;
+    position: relative;
+    left: 0px;
+    transition: left .5s ease-in-out;
+}
+.content {
+    float: left;
+    width: 1119px;
+    height: 438px;
+    white-space: normal;
+    background-repeat: no-repeat;
+}
+#itemOne {
+    background-image: url("../images/Dima/Photo1-1.png");
+}
+#itemTwo {
+    background-image: url("../images/Dima/Photo1-1.png");
+
+}
+#itemThree {
+    background-image: url("../images/Dima/Photo1-1.png");
+}
+#itemFour {
+    background-image: url("../images/Dima/Photo1-1.png");
+}
+#itemFive {
+    background-image: url("../images/Dima/Photo1-1.png");
+}
+#contentContainer {
+    width: 1119px;
+    height: 438px;
+    overflow: hidden;
+}
+#navLinks {
+    position: absolute;
+    margin-left: 87%;
+    margin-top: 35%;
+}
+#navLinks ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    width: 70px;
+}
+#navLinks ul li {
+    width: 8px;
+    height: 8px;
+    background-color: #ffffff;
+    border-radius: 50%;
+}
+#navLinks ul li:hover {
+    cursor: pointer;
+}
+#navLinks ul li.activeD {
+    width: 8px;
+    height: 8px;
+    background-color: #555555;
+    border-radius: 50%;
 }
 .block1-content{
     display: flex;
@@ -105,7 +165,7 @@ body {
     line-height: normal;
     text-align: left;
     font-style: normal;
-        margin-top: 30px;
+    margin-top: 30px;
     margin-left: 90px;
 }
 .btn1-1 {
@@ -138,31 +198,6 @@ body {
     display: flex;
     flex-direction: column;
     list-style: none;
-}
-.right-panel1{
-    margin-left: 82%;
-    margin-top: 65%;
-}
-.dot-nav-1{
-    display: flex;
-    justify-content: space-between;
-    list-style: none;
-    width: 70px;
-}
-.dot1-1, .dot1-2, .dot1-4, .dot1-5 {
-    width: 8px;
-    height: 8px;
-    background-color: #ffffff;
-    border-radius: 50%;
-}
-.dot1-3 {
-    width: 8px;
-    height: 8px;
-    background-color: #555555;
-    border-radius: 50%;
-}
-.dot1-1:hover, .dot1-2:hover, .dot1-3:hover, .dot1-4:hover, .dot1-5:hover{
-    cursor: pointer;
 }
 /*==================Block2========================*/
 .block2 {
@@ -204,7 +239,7 @@ body {
     font-size: 12px;
     line-height: 1.2;
     font-weight: 350;
-    ;
+;
     color: #555555;
     margin-top: 10px;
 }
@@ -382,16 +417,50 @@ body {
     text-transform: uppercase;
     width: 105px;
     height: 28px;
+
     border: 1px solid #c2c2c2;
     background-color: white;
-    margin-left: 40%;
-    margin-top: 10px;
 }
 .btn3-1:hover{
     background-color: #c2c2c2;
     color:#000000;
     cursor: pointer;
 }
+.btn3-1-place{
+    color: #000000;
+    font-family: "Josefin Sans", serif;
+    font-size: 12px;
+    font-weight: 400;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 105px;
+    height: 28px;
+    background-color: white;
+    margin-left: 40%;
+    margin-top: 10px;
+}
+.pop-up{
+    width: 300px;
+    height: 150px;
+    box-shadow: 0 0 13px rgba(0, 0, 0, 0.15);
+    background-color: #ffffff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Josefin Sans", serif;
+    font-size: 18px;
+    font-weight: 400;
+
+    position: fixed;
+    left: 40%;
+    top: 40%;
+    z-index: 2;
+}
+
 .text-container-3{
     display: flex;
     flex-direction: column;
@@ -669,7 +738,7 @@ body {
     line-height: 1.1;
     font-weight: 400;
     font-style: italic;
-    ;
+;
     color: #000000;
 
     margin-top: 30px;
@@ -836,32 +905,49 @@ body {
     font-weight: 700;
     color: #000000;
 }
-.photo-galery{
+.photo-gallery{
     width: 289px;
     height: 204px;
-    background-image: url(../images/Ivan/food.png);
     display: flex;
     justify-content: center;
     align-items: flex-end;
-
 }
-.dot-nav-6-1{
+.gallery-content{
+    width: 289px;
+    height: 204px;
+    overflow: hidden;
+}
+
+#allPhotos{
+    height: 204px;
+    position: relative;
+    display: flex;
+    left: 0px;
+    transition: left .5s ease-in-out;
+}
+.photo-gallery-photo{
+    width: 289px;
+    height: 204px;
+}
+.dot-navigation{
     display: flex;
     justify-content: space-between;
     list-style: none;
     width: 70px;
+    position: absolute;
     margin-bottom: 10px;
+    padding: 0px;
 }
-.dot6{
+.dot-link{
     width: 8px;
     height: 8px;
     background-color: #ffffff;
     border-radius: 50%;
 }
-.selected-dot{
+.selected{
     background-color: #555555;
 }
-.dot6:hover{
+.dot-link:hover{
     cursor: pointer;
 }
 /*--------------------------*/
@@ -1268,7 +1354,7 @@ body {
     line-height: normal;
     text-align: left;
     font-style: normal;
-        line-height: normal;
+    line-height: normal;
     transform: skew(-7deg)
 }
 .first {
@@ -1488,7 +1574,7 @@ body {
     line-height: normal;
     text-align: left;
     font-style: normal;
-        line-height: normal;
+    line-height: normal;
     margin-left: 30px;
 }
 .login {
@@ -1498,7 +1584,7 @@ body {
     border: 1px solid #c2c2c2;
     background-color: #ffffff;
 }
-.login, .usname, .password2, .rppassword {
+.login, .usname,.password, .password2, .rppassword {
     color: #000000;
     font-family: "Josefin Sans";
     font-size: 20px;
@@ -1506,7 +1592,7 @@ body {
 
     text-align: left;
     font-style: normal;
-        line-height: normal;
+    line-height: normal;
 }
 .login::placeholder, .usname::placeholder, .password2::placeholder, .rppassword::placeholder, .password::placeholder {
     width: 150px;
@@ -1519,7 +1605,7 @@ body {
 
     text-align: left;
     font-style: normal;
-        line-height: normal;
+    line-height: normal;
     transform: skew(-7deg);
     position: absolute;
 }
@@ -1557,7 +1643,7 @@ body {
 
     line-height: normal;
     text-align: left;
-        transform: skew(-7deg);
+    transform: skew(-7deg);
     margin-left: 5px;
     margin-top: 5px;
 }
@@ -1577,7 +1663,7 @@ body {
     line-height: normal;
     text-align: center;
     text-transform: uppercase;
-    }
+}
 .btsignup {
     width: 105px;
     height: 28px;
@@ -1595,7 +1681,7 @@ body {
     line-height: normal;
     text-align: center;
     text-transform: uppercase;
-    }
+}
 button:hover {
     background-color: #c2c2c2;
     cursor: pointer;
@@ -1613,15 +1699,15 @@ button:hover {
 
     line-height: normal;
     text-align: left;
-        transform: skew(-7deg);
+    transform: skew(-7deg);
 }
 .a1 {
     margin-left: 30px;
 }
 .flex1 {
-    display: flex; 
-    margin-left: 30px; 
-    margin-bottom: 30px;  
+    display: flex;
+    margin-left: 30px;
+    margin-bottom: 30px;
 }
 .facebook {
     width: 12px;
@@ -1634,7 +1720,7 @@ button:hover {
 
     line-height: normal;
     text-align: left;
-    }
+}
 .log {
     margin-top: 15px;
 }
@@ -1650,7 +1736,7 @@ button:hover {
 
     line-height: normal;
     text-align: left;
-    }
+}
 .g {
     width: 29px;
     height: 19px;
@@ -1672,7 +1758,7 @@ button:hover {
     margin-left: 20px;
 }
 .a3 {
-    margin-left: 20px; 
+    margin-left: 20px;
 }
 .g2 {
     width: 29px;
@@ -1701,7 +1787,7 @@ button:hover {
 
     line-height: normal;
     text-align: left;
-        margin-left: 60px;
+    margin-left: 60px;
     transform: skew(-7deg);
 }
 .block14 {
@@ -1725,7 +1811,7 @@ button:hover {
     line-height: normal;
     text-align: left;
     font-style: normal;
-        line-height: normal;
+    line-height: normal;
     margin-left: 30px;
 }
 
@@ -1781,7 +1867,7 @@ button:hover {
     line-height: normal;
     text-align: left;
     font-style: normal;
-        transform: skew(-7deg);
+    transform: skew(-7deg);
 }
 .l {
     margin-bottom: 25px;
@@ -1822,7 +1908,7 @@ button:hover {
     text-align: left;
     text-transform: uppercase;
     font-style: normal;
-        margin-top: 15px;
+    margin-top: 15px;
 }
 
 /* ===================PASHASASHSHASHA============= */
@@ -1916,6 +2002,7 @@ button:hover {
     box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.15);
     margin-top: 45px;
     margin-left: 285px;
+    position: relative;
 }
 .block16-1, .block16-2, .block16-3, .block16-4{
     width: 743px;
@@ -1957,6 +2044,7 @@ button:hover {
 }
 .smuck-reply1, .smuck-reply2{
     align-items: center;
+    width: 655px;
 }
 .Photo16-1, .Photo16-2{
     width: 56px;
@@ -1972,6 +2060,10 @@ button:hover {
 .reply16-2, .reply16-3, .date16-2, .date16-3, .text16-11, .text16-12 ,.t456-1, .t456-2, .t456-3, .t15-1, .t15-2, .t15-3{
     font-family: 'Josefin Sans';
     line-height: 1.2;
+}
+.text16-11{
+    width: 650px;
+    height:40px;
 }
 .text16-1{
     margin-top: 20px;
@@ -2032,13 +2124,16 @@ button:hover {
     font-size: 12px;
     line-height: 1.5;
     font-weight: 700;
+    margin-right: 5px;
 }
 .reply16-1, .reply16-2, .reply16-3{
     margin-left: 10px;
 }
 .top-likes16, .bottom-likes16{
-    margin-left: 375px;
     gap:5px;
+    display: inline-block;
+    position: absolute;
+    right: 60px;
 }
 .center-likes16{
     gap: 5px;
@@ -2049,7 +2144,8 @@ button:hover {
     font-size: 12px;
     line-height: 1.5;
     font-weight: 400;
-
+    margin-right: 5px;
+    margin-left:5px;
     color: #555555;
 }
 .bottom-content16{
@@ -2085,6 +2181,8 @@ button:hover {
 .share16-1:hover, .share16-2:hover, .like16-:hover, .like16-2:hover{
     cursor: pointer;
 }
+
+
 /*-------------------------------*/
 .block17{
     width: 838px;
@@ -2108,11 +2206,28 @@ button:hover {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 30px;
+    list-style: none;
+    padding: 0;
 }
 .text17-1, .text17-3, .text17-4, .text17-5, .text17-6, .text17-7, .text17-arrowright, .text17-arrowleft{
     color: #000000;
 }
 .text17-2{
+    color: #629494;
+}
+.text17-arrowleft:hover{
+    color: #629494;
+    cursor: pointer;
+}
+.text17-arrowright:hover{
+    color: #629494;
+    cursor: pointer;
+}
+.text17-1:hover{
+    color: #629494;
+    cursor: pointer;
+}
+#navigation_bar li.active{
     color: #629494;
 }
 /*footer*/

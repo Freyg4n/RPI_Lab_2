@@ -6,4 +6,4 @@
 Link to Github Pages:
 <a href="https://freyg4n.github.io/RPI_Lab_2/" target="_blank">Open link</a>
 
-![Image](styles/images/memes/HeadHurts.png)
+![Image](styles/images/memes/Gun.png)

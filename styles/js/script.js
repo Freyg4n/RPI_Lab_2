@@ -75,6 +75,7 @@ if (localStorage.getItem('actDot')) {
 
 function changePhoto(dot) {
     dot.classList.add("selected");
+    localStorage.setItem('actDot', activeDot);
     let position = -dot.getAttribute("value")*photoSize;
     gallery.style.left = position+"px";
 }
@@ -89,7 +90,7 @@ function setClickedDot(e) {
     removeActiveDots();
     let clickedDot = e.target;
     activeDot = clickedDot.itemID;
-    localStorage.setItem('actDot', activeDot);
+
     changePhoto(clickedDot);
 }
 
@@ -100,8 +101,7 @@ for (let i = 0; i < dots.length; i++) {
 dots[activeDot].classList.add("selected");
 changePhoto(dots[activeDot]);
 
-function goToNextDot()
-{
+function goToNextDot() {
     removeActiveDots();
     if (activeDot < dots.length - 1) {
         activeDot++;
@@ -110,6 +110,49 @@ function goToNextDot()
     }
     let newDot = dots[activeDot];
     changePhoto(newDot);
+}
+/*================button=====================*/
+let myButton=document.getElementById("recipeButton");
+let buttonPlace=document.getElementById("buttonPlace");
+myButton.addEventListener("click",buttonClicked,false);
+
+let buttonState="base";
+
+if (localStorage.getItem("buttonState")){
+    buttonState=localStorage.getItem("buttonState");
+}
+
+function buttonView() {
+    if (buttonState=="clicked") {
+        let check=document.createElement("i");
+        check.classList.add("fa-solid");
+        check.classList.add("fa-check");
+        buttonPlace.removeChild(myButton);
+        buttonPlace.textContent="SAVED";
+        buttonPlace.appendChild(check);
+    }
+}
+buttonView();
+
+function buttonClicked() {
+    if(buttonState=="base") {
+
+        buttonState="clicked";
+        localStorage.setItem("buttonState",buttonState);
+        buttonView();
+        showPopUp();
+    }
+}
+function showPopUp() {
+    let popUp=document.createElement("div");
+    popUp.className="pop-up";
+    popUp.textContent="Успешно сохранено!";
+    buttonPlace.appendChild(popUp);
+    setTimeout(removePopUp,5000);
+}
+function removePopUp() {
+    let popUp=document.querySelector(".pop-up");
+    popUp.remove();
 }
 /*===========================================*/
 /*===========(Artyom)=============*/

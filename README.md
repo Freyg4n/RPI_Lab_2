@@ -7,6 +7,6 @@ Link to Github Pages:
 <a href="https://freyg4n.github.io/RPI_Lab_2/" target="_blank">Open link</a>
 
 Важная инфа:
-<a href="http://localhost/RPI_Laba_2/styles/images/memes/memes.html" target="_blank">Open link</a>
+<a href="http://freyg4n.github.io/RPI_Laba_2/styles/images/memes/memes.html" target="_blank">Open link</a>
 
 ![Image](styles/images/memes/Gun.png)
